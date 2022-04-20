@@ -97,4 +97,4 @@ def generate_sequence(length, max_value):
     # infinite loop so I can take a screenshot before I close it
     while True:
         pass
-generate_sequence(length=200, max_value=68719476737)
+generate_sequence(length=300, max_value=68719476737)
