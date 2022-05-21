@@ -23,18 +23,18 @@ def generate_sequence(length, max_value):
             if number in unique_steps:
                 unique = False
         sequences.append(unique_steps)
-    
+
     # create a master dict of all numbers which will eventually aslo have their xy coordinates
     # this means that we wont have to repeatedly redraw huge sections of the graph, ergo gooder performance
     # keys are the numbers, values are the xy coordinates and the heading
     # eg {1 : [0,0, 90]}
-    master_dict = {} 
+    master_dict = {}
     for sequence in sequences:
         for number in sequence:
             if number not in master_dict.keys():
                 master_dict[number] = [] # we'll get to the xy values and headings once we start graphing
     print("finished the math, will now graph")
-    
+
     wn = turtle.Screen()
     wn.colormode(255)
     wn.bgcolor("black")
@@ -45,9 +45,9 @@ def generate_sequence(length, max_value):
     turt.speed("fastest")
     turt.color(80,80,80)
     turt.width(1)
-    
+
     progress = 0
-    for sequence in sequences:      
+    for sequence in sequences:
         print("progress: " + str(progress) + "/" + str(len(sequences)), end="\r")
         progress += 1
         turt.penup()
@@ -64,7 +64,7 @@ def generate_sequence(length, max_value):
         del sequence[:should_remove_up_to]
         if master_dict[sequence[0]]:
             turt.penup()
-            turt.goto(master_dict[sequence[0]][0], master_dict[sequence[0]][1])    
+            turt.goto(master_dict[sequence[0]][0], master_dict[sequence[0]][1])
             turt.setheading(master_dict[sequence[0]][2])
             turt.pendown()
         for number in sequence:
@@ -75,22 +75,6 @@ def generate_sequence(length, max_value):
                 turt.left(10)
             else:
                 turt.right(19)
-    """        
-    # demonstrate the circle of 2^n with a blue line
-    turt = turtle.Turtle()
-    turt.hideturtle()
-    turt.penup()
-    turt.goto((-1000,-400))
-    turt.setheading(0)
-    turt.backward(550)
-    turt.width(1)
-    turt.color(20,0,80)
-    turt.pendown() 
-    turt.forward(8)
-    turt.right(20)
-    for i in range(37):
-        turt.forward(8)
-        turt.left(10)"""    
     print("finished graphing")
 
     # infinite loop so I can take a screenshot before I close it
