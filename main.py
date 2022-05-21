@@ -35,7 +35,6 @@ def generate_sequence(length, max_value):
                 master_dict[number] = [] # we'll get to the xy values and headings once we start graphing
     print("finished the math, will now graph")
     
-
     wn = turtle.Screen()
     wn.colormode(255)
     wn.bgcolor("black")
