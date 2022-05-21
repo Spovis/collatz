@@ -9,3 +9,6 @@ If you want to play around with the appearance of the graph, you can change the 
 
 This might not be the most effecient way to do this but I used the tools I know and had a lot of fun making it.
 Enjoy
+
+Example image:
+![Screen Shot 2022-04-19 at 9 24 02 PM](https://user-images.githubusercontent.com/63383458/169672619-3c18e547-9abe-47e7-955a-268aaa12d342.png)
