@@ -39,21 +39,22 @@ def generate_sequence(length, max_value):
     wn.colormode(255)
     wn.bgcolor("black")
     wn.title("Collatz Sequence")
-    wn.setup(width=3840, height=2160) # 4k resolution
+    wn.setup(width=3840, height=2160)
     turt = turtle.Turtle()
     turt.hideturtle()
     turt.speed("fastest")
     turt.color(80,80,80)
     turt.width(1)
-
+    starting_point = (int(wn.canvwidth*.2),int(wn.canvheight*-.1))
+    movementdist = int(wn.canvwidth*.01) if wn.canvwidth > 100 else 1
     progress = 0
     for sequence in sequences:
         print("progress: " + str(progress) + "/" + str(len(sequences)), end="\r")
         progress += 1
         turt.penup()
-        turt.goto((-1000,-400))
+        turt.goto(starting_point)
         turt.setheading(0)
-        turt.backward(550)
+        turt.backward(int(wn.canvwidth*.4))
         turt.pendown()
         sequence = sequence[::-1]
         should_remove_up_to = 0
@@ -70,7 +71,7 @@ def generate_sequence(length, max_value):
         for number in sequence:
             if master_dict[number] == []:
                 master_dict[number] = [turt.xcor(), turt.ycor(), turt.heading()]
-            turt.forward(8)
+            turt.forward(movementdist)
             if number % 2 == 0:
                 turt.left(10)
             else:
@@ -80,4 +81,4 @@ def generate_sequence(length, max_value):
     # infinite loop so I can take a screenshot before I close it
     while True:
         pass
-generate_sequence(length=300, max_value=68719476737)
+generate_sequence(length=100, max_value=10000)
